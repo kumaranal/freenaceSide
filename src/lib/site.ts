@@ -1,17 +1,25 @@
 // Single place to edit company details. Replace the placeholders before launch.
 export const site = {
   name: "[Your Company]",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com").replace(
+    /\/$/,
+    "",
+  ),
   email: "hello@your-domain.com",
-  phone: "+91 00000 00000",
-  title: "Software Solutions, Digital Marketing and Automation for Business",
+  phone: "+91 7003115108",
+  title: "Software, LMS, Onboarding and AI Solutions for Business",
   description:
-    "One team for everything your business needs online: online presence, software solutions, business automation, IoT solutions, digital marketing and influencer marketing support. Fair pricing and support that doesn't end at launch.",
+    "One team for the digital tools your business needs: custom software, LMS platforms, onboarding tools, practical AI, business automation, IoT and digital marketing. Fair pricing and support that doesn't end at launch.",
   ogDescription:
-    "Other businesses are growing online. Don't get left behind. Software solutions, automation, IoT, digital and influencer marketing, all under one umbrella.",
+    "Custom software, learning platforms, onboarding tools and practical AI to help your business work smarter and grow, all under one umbrella.",
   keywords: [
     "software solutions",
     "custom software development",
+    "learning management system development",
+    "LMS development",
+    "employee onboarding software",
+    "AI solutions for business",
+    "AI integration",
     "business automation",
     "IoT solutions",
     "digital marketing",
@@ -56,9 +64,24 @@ export function waFor() {
   return `https://wa.me/${digits}?text=${encodeURIComponent(lines.join("\n"))}`;
 }
 
-export type IconName = "globe" | "code" | "bolt" | "chip" | "megaphone" | "star" | "shield";
+export type IconName =
+  | "globe"
+  | "code"
+  | "bolt"
+  | "chip"
+  | "megaphone"
+  | "star"
+  | "shield"
+  | "book"
+  | "users"
+  | "sparkles";
 
-export const services: { icon: IconName; title: string; text: string; ask: string }[] = [
+export const services: {
+  icon: IconName;
+  title: string;
+  text: string;
+  ask: string;
+}[] = [
   {
     icon: "globe",
     title: "Online presence",
@@ -70,6 +93,24 @@ export const services: { icon: IconName; title: string; text: string; ask: strin
     title: "Software solutions for business",
     text: "Software built around how you work: billing, stock, bookings, customer records and more, running safely in the cloud.",
     ask: "Software solutions for my business",
+  },
+  {
+    icon: "book",
+    title: "LMS and learning platforms",
+    text: "Create a learning management system for your courses or team training, with organized lessons, learner progress and reporting.",
+    ask: "LMS and learning platform development",
+  },
+  {
+    icon: "users",
+    title: "Onboarding tools",
+    text: "Make employee or customer onboarding easier with guided steps, digital forms, useful resources and clear progress tracking.",
+    ask: "Onboarding tools for my business",
+  },
+  {
+    icon: "sparkles",
+    title: "Practical AI for business",
+    text: "Find useful ways to bring AI into your business, from automating routine tasks to building AI features into your existing tools.",
+    ask: "AI solutions for my business",
   },
   {
     icon: "bolt",
@@ -150,10 +191,72 @@ export const pillars = [
 ];
 
 export const steps = [
-  { title: "Tell us what you need", text: "Send a quick email or WhatsApp message. No technical words needed, just tell us your goal." },
-  { title: "We explain and quote", text: "We walk you through the options in plain language and give you a clear, fair price." },
-  { title: "We build, you review", text: "You see progress along the way and tell us what to change, so the result is what you wanted." },
-  { title: "We launch, then look after it", text: "We take it live and stay on hand to keep everything running smoothly as you grow." },
+  {
+    title: "Tell us what you need",
+    text: "Send a quick email or WhatsApp message. No technical words needed, just tell us your goal.",
+  },
+  {
+    title: "We explain and quote",
+    text: "We walk you through the options in plain language and give you a clear, fair price.",
+  },
+  {
+    title: "We build, you review",
+    text: "You see progress along the way and tell us what to change, so the result is what you wanted.",
+  },
+  {
+    title: "We launch, then look after it",
+    text: "We take it live and stay on hand to keep everything running smoothly as you grow.",
+  },
 ];
 
-export const clients = ["General Motors", "National Grid", "IQGEO", "Comcast", "and more"];
+export const clients = [
+  "General Motors",
+  "National Grid",
+  "IQGEO",
+  "Comcast",
+  "Tata Consultancy Services",
+];
+
+export const aiUses: {
+  icon: IconName;
+  title: string;
+  text: string;
+  ask: string;
+}[] = [
+  {
+    icon: "sparkles",
+    title: "AI assistants for your customers",
+    text: "A chat assistant on your website or WhatsApp that answers common questions at any hour and hands over to your team when a person is needed.",
+    ask: "An AI assistant for my customers",
+  },
+  {
+    icon: "bolt",
+    title: "AI that does the paperwork",
+    text: "Read invoices, forms and emails, pull out the details and fill in your systems, so nobody retypes data by hand.",
+    ask: "AI to automate documents and data entry",
+  },
+  {
+    icon: "code",
+    title: "AI inside the tools you already use",
+    text: "Add smart search, summaries, suggestions and drafting to your existing software, instead of replacing it.",
+    ask: "AI features inside my existing software",
+  },
+  {
+    icon: "book",
+    title: "An assistant that knows your business",
+    text: "Let your team ask questions in plain language and get answers from your own documents, policies and past work.",
+    ask: "An AI assistant trained on my business documents",
+  },
+  {
+    icon: "users",
+    title: "AI for training and onboarding",
+    text: "Personalised learning paths, instant answers for new joiners and quizzes built from your own material, inside your LMS.",
+    ask: "AI for training and onboarding",
+  },
+  {
+    icon: "globe",
+    title: "AI for marketing and growth",
+    text: "Faster content, clearer reports and sharper targeting, with a person always checking the result before it goes out.",
+    ask: "AI for marketing and growth",
+  },
+];

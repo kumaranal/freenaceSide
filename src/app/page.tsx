@@ -122,14 +122,8 @@ export default function Home() {
                 }}
               />
             </span>
-            <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
-              <span
-                className="disp"
-                style={{ fontWeight: 700, fontSize: 21, letterSpacing: "-.02em" }}
-              >
-                {site.name}
-              </span>
-              <span className="brand-tag mono">{site.tagline}</span>
+            <span className="disp brand-name" style={{ fontSize: 20 }}>
+              {site.name}
             </span>
           </a>
           <nav
@@ -265,6 +259,18 @@ export default function Home() {
                   <Icon name="chat" sw={2} />
                   Chat on WhatsApp
                 </a>
+              </div>
+              <div className="chosen hl" style={{ ["--i" as string]: 4 }}>
+                <span className="disp brand-name" aria-hidden="true">
+                  {site.name}
+                </span>
+                <p style={{ margin: 0 }}>
+                  <span className="mono chosen-meaning">
+                    <span className="sr-only">{site.name} means </span>
+                    &ldquo;{site.meaning.toLowerCase()}&rdquo;
+                  </span>
+                  <span className="disp chosen-tag gt">{site.tagline}</span>
+                </p>
               </div>
             </div>
 
@@ -1391,14 +1397,7 @@ export default function Home() {
                   }}
                 />
               </span>
-              <span
-                className="disp"
-                style={{
-                  fontWeight: 700,
-                  fontSize: 19,
-                  letterSpacing: "-.02em",
-                }}
-              >
+              <span className="disp brand-name" style={{ fontSize: 19 }}>
                 {site.name}
               </span>
             </a>

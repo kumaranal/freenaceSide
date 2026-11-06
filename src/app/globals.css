@@ -112,6 +112,8 @@ blockquote{margin:0}
 @keyframes rise{from{opacity:0;transform:translateY(40px)}}
 @keyframes drawline{from{transform:scaleX(0)}}
 
+.brand-tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:420px){header .brand-tag{display:none}}
 @media (max-width:720px){
 .nav-links{display:none!important}
 .client{font-size:22px}

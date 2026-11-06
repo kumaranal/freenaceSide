@@ -1,12 +1,14 @@
-// Single place to edit company details. Replace the placeholders before launch.
+// Single place to edit company details.
 export const site = {
-  name: "[Your Company]",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com").replace(
+  name: "Choyoni",
+  meaning: "The chosen one",
+  tagline: "Chosen for Excellence",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://choyoni.com").replace(
     /\/$/,
     "",
   ),
-  email: "hello@your-domain.com",
-  phone: "+91 7003115108",
+  email: "admin@choyoni.com",
+  phone: "+91 7602003397",
   title: "Software, LMS, Onboarding and AI Solutions for Business",
   description:
     "One team for the digital tools your business needs: custom software, LMS platforms, onboarding tools, practical AI, business automation, IoT and digital marketing. Fair pricing and support that doesn't end at launch.",
@@ -53,15 +55,35 @@ export function mailFor(service?: string) {
   return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\r\n"))}`;
 }
 
-export function waFor() {
+function waText(service?: string) {
   const lines = [
     "Hello! I found your website and would like to discuss a project for my business.",
     "",
-    "Business need: [write your business need here]",
-    "",
-    "Name: [your name]",
   ];
-  return `https://wa.me/${digits}?text=${encodeURIComponent(lines.join("\n"))}`;
+  if (service) lines.push(`I am interested in: ${service}`);
+  lines.push("Business need: [write your business need here]", "", "Name: [your name]");
+  return encodeURIComponent(lines.join("\n"));
+}
+
+// Web link: opens WhatsApp Web on desktop, or the app / a download page on mobile.
+export function waFor(service?: string) {
+  return `https://wa.me/${digits}?text=${waText(service)}`;
+}
+
+// App-only link: opens the installed WhatsApp app, does nothing if it is missing.
+export function waAppFor(service?: string) {
+  return `whatsapp://send?phone=${digits}&text=${waText(service)}`;
+}
+
+// Props for any "talk to us" link. Without JavaScript, and on desktop, the
+// link opens `href`. On a phone, ContactRouter tries the WhatsApp app first
+// and falls back to email when WhatsApp is not installed.
+export function contactProps(service?: string, href = mailFor(service)) {
+  return {
+    href,
+    "data-wa": waAppFor(service),
+    "data-mail": mailFor(service),
+  };
 }
 
 export type IconName =

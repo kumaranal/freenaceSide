@@ -1,8 +1,10 @@
 import { Icon } from "@/components/Icons";
+import ContactRouter from "@/components/ContactRouter";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   aiUses,
   clients,
+  contactProps,
   mailFor,
   pillars,
   services,
@@ -36,6 +38,8 @@ const jsonLd = {
       description:
         "Software solutions company offering custom business software, LMS and learning platforms, onboarding tools, practical AI, automation, IoT and digital marketing, with ongoing maintenance and support.",
       email: site.email,
+      telephone: site.phone,
+      slogan: `${site.name} - ${site.tagline}`,
       areaServed: "Worldwide",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
@@ -55,6 +59,7 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
+      <ContactRouter />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -117,11 +122,14 @@ export default function Home() {
                 }}
               />
             </span>
-            <span
-              className="disp"
-              style={{ fontWeight: 700, fontSize: 21, letterSpacing: "-.02em" }}
-            >
-              {site.name}
+            <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
+              <span
+                className="disp"
+                style={{ fontWeight: 700, fontSize: 21, letterSpacing: "-.02em" }}
+              >
+                {site.name}
+              </span>
+              <span className="brand-tag mono">{site.tagline}</span>
             </span>
           </a>
           <nav
@@ -152,11 +160,11 @@ export default function Home() {
             <ThemeToggle />
             <a
               className="btn btn-primary"
-              href={mailGeneric}
+              {...contactProps()}
               style={{ minHeight: 44, padding: "0 20px", fontSize: 15 }}
             >
-              <Icon name="mail" sw={2} />
-              Email us
+              <Icon name="chat" sw={2} />
+              Talk to us
             </a>
           </div>
         </div>
@@ -241,7 +249,7 @@ export default function Home() {
                   gap: 14,
                 }}
               >
-                <a className="btn btn-primary" href={mailGeneric}>
+                <a className="btn btn-primary" {...contactProps()}>
                   <Icon name="mail" sw={2} />
                   Tell us what you need
                   <span className="go">
@@ -250,7 +258,7 @@ export default function Home() {
                 </a>
                 <a
                   className="btn btn-ghost"
-                  href={waGeneric}
+                  {...contactProps(undefined, waGeneric)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -514,7 +522,7 @@ export default function Home() {
                 The good news: it is not too late. We will help you catch up,
                 and get ahead.
               </p>
-              <a className="btn btn-ink" href={mailGeneric}>
+              <a className="btn btn-ink" {...contactProps()}>
                 Get started today
                 <span className="go">
                   <Icon name="arrow" sw={2} />
@@ -594,7 +602,7 @@ export default function Home() {
                     {s.title}
                   </h3>
                   <p style={{ margin: 0, color: "var(--muted)" }}>{s.text}</p>
-                  <a className="more" href={mailFor(s.ask)}>
+                  <a className="more" {...contactProps(s.ask)}>
                     Ask about this <Icon name="arrow" sw={2} />
                   </a>
                 </article>
@@ -656,7 +664,7 @@ export default function Home() {
               </div>
               <a
                 className="more"
-                href={mailFor("Maintenance and support")}
+                {...contactProps("Maintenance and support")}
                 style={{ marginTop: 0 }}
               >
                 Ask about support <Icon name="arrow" sw={2} />
@@ -725,7 +733,7 @@ export default function Home() {
                   We bring practical AI into your business, in plain language,
                   with real people checking the work.
                 </p>
-                <a className="btn btn-primary" href={mailFor("AI integration for my business")}>
+                <a className="btn btn-primary" {...contactProps("AI integration for my business")}>
                   <Icon name="sparkles" sw={2} />
                   Talk to us about AI
                   <span className="go">
@@ -813,7 +821,7 @@ export default function Home() {
                     {u.title}
                   </h3>
                   <p style={{ margin: 0, color: "var(--muted)" }}>{u.text}</p>
-                  <a className="more" href={mailFor(u.ask)}>
+                  <a className="more" {...contactProps(u.ask)}>
                     Ask about this <Icon name="arrow" sw={2} />
                   </a>
                 </article>
@@ -946,7 +954,7 @@ export default function Home() {
               </p>
               <a
                 className="btn btn-primary"
-                href={mailFor("A walkthrough of your past projects")}
+                {...contactProps("A walkthrough of your past projects")}
               >
                 Ask for a walkthrough
                 <span className="go">
@@ -1257,7 +1265,7 @@ export default function Home() {
               </a>
               <a
                 className="tile rv"
-                href={waGeneric}
+                {...contactProps(undefined, waGeneric)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1394,6 +1402,9 @@ export default function Home() {
                 {site.name}
               </span>
             </a>
+            <p className="brand-tag mono" style={{ margin: "10px 0 0" }}>
+              {site.name} &ndash; {site.tagline}
+            </p>
             <p
               style={{
                 margin: "8px 0 0",
@@ -1401,6 +1412,7 @@ export default function Home() {
                 maxWidth: 340,
               }}
             >
+              <em>{site.name}</em> means &ldquo;{site.meaning.toLowerCase()}&rdquo;.{" "}
               Software solutions, automation, IoT, digital and influencer
               marketing. Everything your business needs to grow, under one
               umbrella.
@@ -1429,7 +1441,7 @@ export default function Home() {
             </a>
             <a
               className="flink"
-              href={waGeneric}
+              {...contactProps(undefined, waGeneric)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1457,7 +1469,7 @@ export default function Home() {
       <div style={{ position: "fixed", right: 20, bottom: 20, zIndex: 50 }}>
         <a
           className="fab"
-          href={waGeneric}
+          {...contactProps(undefined, waGeneric)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with us on WhatsApp"

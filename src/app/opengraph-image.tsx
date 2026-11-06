@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name}: software, LMS, onboarding and AI solutions`;
+export const alt = `${site.name} - ${site.tagline}: software, LMS, onboarding and AI solutions`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -29,7 +29,12 @@ export default function OpengraphImage() {
             background: "linear-gradient(110deg,#F6B73C,#F58A4B)",
           }}
         />
-        <div style={{ fontSize: 36, fontWeight: 700 }}>{site.name}</div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ fontSize: 36, fontWeight: 700 }}>{site.name}</div>
+          <div style={{ fontSize: 22, color: "#F6B73C", letterSpacing: 1 }}>
+            {site.tagline}
+          </div>
+        </div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         <div

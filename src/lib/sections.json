@@ -1,0 +1,8 @@
+{
+  "services": ["services", "solutions"],
+  "ai": ["ai"],
+  "work": ["work", "our-work"],
+  "why": ["why", "why-us"],
+  "process": ["process", "how-it-works"],
+  "contact": ["contact"]
+}

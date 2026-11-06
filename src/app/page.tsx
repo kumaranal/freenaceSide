@@ -1,5 +1,6 @@
 import { Icon } from "@/components/Icons";
 import ContactRouter from "@/components/ContactRouter";
+import SectionRouter from "@/components/SectionRouter";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   aiUses,
@@ -60,6 +61,7 @@ export default function Home() {
   return (
     <>
       <ContactRouter />
+      <SectionRouter />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -90,7 +92,7 @@ export default function Home() {
           }}
         >
           <a
-            href="#top"
+            href="/"
             aria-label={`${site.name} home`}
             style={{
               display: "flex",
@@ -131,22 +133,22 @@ export default function Home() {
             aria-label="Primary"
             style={{ display: "flex", gap: 32 }}
           >
-            <a className="nav-link" href="#services">
+            <a className="nav-link" href="/services">
               Solutions
             </a>
-            <a className="nav-link" href="#ai">
+            <a className="nav-link" href="/ai">
               AI
             </a>
-            <a className="nav-link" href="#work">
+            <a className="nav-link" href="/work">
               Our work
             </a>
-            <a className="nav-link" href="#why">
+            <a className="nav-link" href="/why">
               Why us
             </a>
-            <a className="nav-link" href="#process">
+            <a className="nav-link" href="/process">
               How it works
             </a>
-            <a className="nav-link" href="#contact">
+            <a className="nav-link" href="/contact">
               Contact
             </a>
           </nav>
@@ -739,7 +741,10 @@ export default function Home() {
                   We bring practical AI into your business, in plain language,
                   with real people checking the work.
                 </p>
-                <a className="btn btn-primary" {...contactProps("AI integration for my business")}>
+                <a
+                  className="btn btn-primary"
+                  {...contactProps("AI integration for my business")}
+                >
                   <Icon name="sparkles" sw={2} />
                   Talk to us about AI
                   <span className="go">
@@ -787,15 +792,15 @@ export default function Home() {
                       Hi, do you deliver on weekends?
                     </div>
                     <div className="bubble bubble-ai">
-                      Yes, we deliver Saturday and Sunday. Order before 2 pm
-                      for same-day dispatch. Want me to check your postcode?
+                      Yes, we deliver Saturday and Sunday. Order before 2 pm for
+                      same-day dispatch. Want me to check your postcode?
                     </div>
                     <div className="bubble bubble-user">
                       Please, and can I speak to someone about a bulk order?
                     </div>
                     <div className="bubble bubble-ai">
-                      Of course. I have passed your request to our team and
-                      they will reply shortly.
+                      Of course. I have passed your request to our team and they
+                      will reply shortly.
                     </div>
                   </div>
                 </div>
@@ -1253,7 +1258,7 @@ export default function Home() {
                       wordBreak: "break-all",
                     }}
                   >
-                    {site.email}
+                    Sent the mail
                   </span>
                   <span
                     style={{
@@ -1366,7 +1371,7 @@ export default function Home() {
         >
           <div>
             <a
-              href="#top"
+              href="/"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -1411,26 +1416,26 @@ export default function Home() {
                 maxWidth: 340,
               }}
             >
-              <em>{site.name}</em> means &ldquo;{site.meaning.toLowerCase()}&rdquo;.{" "}
-              Software solutions, automation, IoT, digital and influencer
-              marketing. Everything your business needs to grow, under one
-              umbrella.
+              <em>{site.name}</em> means &ldquo;{site.meaning.toLowerCase()}
+              &rdquo;. Software solutions, automation, IoT, digital and
+              influencer marketing. Everything your business needs to grow,
+              under one umbrella.
             </p>
           </div>
           <nav
             aria-label="Footer"
             style={{ display: "flex", flexDirection: "column" }}
           >
-            <a className="flink" href="#services">
+            <a className="flink" href="/services">
               Solutions
             </a>
-            <a className="flink" href="#why">
+            <a className="flink" href="/why">
               Why us
             </a>
-            <a className="flink" href="#process">
+            <a className="flink" href="/process">
               How it works
             </a>
-            <a className="flink" href="#contact">
+            <a className="flink" href="/contact">
               Contact
             </a>
           </nav>
